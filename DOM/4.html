@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="hlo">how are you all</p>
+    <div>
+        <h3 class="wow">Lorem ipsum dolor sit amet.</h3>
+    </div>
+    <p id="maro">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+    <a href="https://www.facebook.com">facebook</a>
+    <a href="https://www.instagram.com">instagram</a>
+    <a href="https://www.amazon.com">amazon</a>
+
+    <article id="wrapper">
+        <p>para<span>span</span></p>
+        <p>para<span>span</span></p>
+        <p>para<span>span</span></p>
+    </article>
+
+    <script>
+
+        let element = document.querySelector('#wrapper');
+        element.addEventListener('click',function(event){
+               if(event.target.nodeName === 'SPAN'){
+                console.log('span pr click kia he' + event.target.textContent);
+               }
+               else{
+                console.log('para pe click kia he');
+               }
+        });
+        // browser events
+          // eventTarget 
+          // <event target> .addEventListener (event type) (function applied)
+            let content = document.addEventListener('click', function(){
+                console.log('i click on document');
+            })
+            let jontent = document.querySelector('#hlo');
+            function change (){
+                jontent.style.cssText = 'color:green; background-color:yellow; font-size:2rem';
+            }
+            jontent.addEventListener('click',change);
+            // jontent.removeEventListener('click', change);
+
+            // way to find out the event information by event object 
+
+            let pontent = document.querySelector('.wow')
+            pontent.addEventListener('click' ,function(event){
+               console.log(event);
+            })
+            // .preventDefault() method to stop current default action by passing the event object and applying the preventDefault over it and giving the command of doing something else if needed 
+                let link = document.querySelectorAll('a');
+                let thirdLink = link[2];
+                thirdLink.addEventListener('click', function(event){
+                    event.preventDefault();
+                        console.log('samajh aa gya');
+                });
+
+             // how to avoid too many events
+            
+
+
+            //   let myDiv =  document.createElement('div');
+            //   function thoko(event){
+            //         console.log('i have clicked on para');
+            //     }
+
+            //     myDiv.addEventListener('click',thoko);
+            //   for(let i=1; i<=100; i++){
+            //     let newContent = document.createElement('p');
+            //     newContent.textContent = 'tum dono ki maa ki chuu' + i;
+            //     // function thoko(event){
+            //     //     console.log('i have clicked on para');
+            //     // }
+            //     // newContent.addEventListener('click',thoko);
+            //     myDiv.appendChild(newContent);
+            //   }
+            //   document.body.appendChild(myDiv);
+
+
+            // Event Target --. basically returns the element back
+            let myDiv =  document.createElement('div');
+              function thoko(event){
+                    console.log('' + event.target.textContent);
+                }
+
+                myDiv.addEventListener('click',thoko);
+              for(let i=1; i<=100; i++){
+                let newContent = document.createElement('p');
+                newContent.textContent = 'tum dono ki maa ki chuu' + i;
+                // function thoko(event){
+                //     console.log('i have clicked on para');
+                // }
+                // newContent.addEventListener('click',thoko);
+                myDiv.appendChild(newContent);
+              }
+              document.body.appendChild(myDiv);
+
+
+    </script>
+</body>
+</html>

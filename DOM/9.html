@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="hello"></p>
+    <p id="hlo"></p>
+    <button type="button" onclick="clearTime()">stop</button>
+    <button type="button" onclick="document.getElementById('hlo').innerHTML=Date()">the time is</button>
+    <script>
+          // setTimeOut and clearTimeOut method
+       let timeOut = setTimeout(myfunction, 7000);
+
+        function  myfunction(){
+            document.getElementById('hello').innerHTML='hlo ji kese ho sare';
+         }
+
+
+// function clearTime(){
+//     clearTimeout(timeOut);
+// }
+         
+//         console.log('nitesh here');
+
+       
+
+//         setTimeout(function(){
+//             console.log('third');
+//         },3000);
+
+//         function sync(){
+//             console.log('first');
+//         }
+
+//         sync();
+
+//         console.log('second');
+
+        // js --> single threaded language
+
+        // API --> Application Programming Interface 
+        // promise method resolve or reject   pending, fulfilled and rejected
+        
+        //  let meraPromise = new Promise(function(resolve, reject){
+        //     console.log('i am under promise');
+        //     resolve(1998);
+        //  });
+
+        // async code
+        // let teraPromise = new Promise(function(resolve, reject){
+        //   setTimeout(function(){
+        //     console.log('i am inside promise');
+        //   },5000);
+        //     resolve(1998);
+        //     // reject(new Error('bhai sab error aye he '))
+        //  });
+
+        // let meraPromise = new Promise(function(resolve, reject){
+        //   setTimeout(function(){
+        //     console.log('i am inside promise');
+        //   },5000);
+        //    reject(new Error('bhai sab error aye he '))
+        //  });
+
+     // then()  and catch()
+        //  teraPromise.then((value) => {console.log(value)});
+
+        //  teraPromise.catch((error)  => {console.log('received an error')});
+
+        // teraPromise.then((value) => {console.log(value)}, (error)  => {console.log('received an error')});
+
+        //  console.log('pehla');
+
+        // p --> fulfilled , rejected
+
+        // then() will handle fulfilled case
+        // catch()  will handle the error
+
+        // multiple promises for clean and concise code
+
+        //   let wadaa1 = new Promise(function(resolve, reject){
+        //     setTimeout(()=>{
+        //         console.log('setTimeout1 started');
+        //     },2000);
+        //     resolve(true);
+        //   })
+
+        // let output =  wadaa1.then(() => {
+        //     let wadda2 = new Promise(function(resolve,reject){
+        //         setTimeout(() => {
+        //             console.log('setTimeout2 started');
+        //         },4000)
+        //         resolve('wada 2 resolve');
+        //     })
+
+        //     return wadda2;
+        //   })
+        //   output.then((value) => console.log(value));
+
+
+        //   Async - await concept  --> special syntax used to work with promises
+
+        async function abcd(){
+            // console.log('nitesh');
+            return 'babbar';
+        }
+        abcd();
+
+        // async function example
+
+        async function utility(){
+            let maharashtraMausam = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('maharashtra me bohot garmi he');
+            },5000);
+        });
+
+        let hyderabadMausam = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Hyderabad is cool');
+            },6000);
+        });
+
+         let mM = await maharashtraMausam;
+         let hM =  await hyderabadMausam;
+
+
+         return [mM, hM]; 
+
+        }
+
+
+        // Fetch API 
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // closures() method
+
+
+
+        // let --> block Scoped life is valid only inside the loop
+        var name = "sher";
+        function init(){
+            let name = 'nitesh';
+            console.log(name);
+              function  displayName(){
+                let name = 'babbar';
+                console.log(name);
+              }
+              return displayName();
+        }
+        let ans =init();
+        console.log(ans);
+
+        // local vs Global scope
+
+          // closure --> inner function + reference of the outer function it is refeerence not copy
+
+function outer(){
+    let a=5;
+   function inner1(){
+        let a =3;
+        console.log(a);
+      function  inner2(){
+            let a=7;
+            console.log(a);
+          function  inner3(){
+                console.log(a);
+            }
+        }
+    }
+}
+
+ // classes and exprt modules in js --> h.w
+        
+
+    </script>
+</body>
+</html>

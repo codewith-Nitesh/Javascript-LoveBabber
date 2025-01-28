@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="hlo">how are you all</p>
+    <div>
+        <h3 class="wow">Lorem ipsum dolor sit amet.</h3>
+    </div>
+    <p id="maro">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+    <a href="https://www.facebook.com">facebook</a>
+    <a href="https://www.instagram.com">instagram</a>
+    <a href="https://www.amazon.com">amazon</a>
+
+    <article id="wrapper">
+        <p>para<span>span</span></p>
+        <p>para<span>span</span></p>
+        <p>para<span>span</span></p>
+    </article>
+    <script>
+        // performanced
+        // measure speed of code by timestamp --> performance.now() it is a way to find out how much time the coode takes to execute 
+        const t1 = performance.now();
+        for(let i=1; i<=100; i++){
+            let newElement = document.createElement('p');
+            newElement.textContent='this is new Element'+i;
+            document.body.appendChild(newElement);
+        }
+        const t2 = performance.now();
+        console.log('this  took ' + (t2-t1) +' ms');
+
+        // optimizing a bit
+        let t3 = performance.now();
+
+        let myDiv = document.createElement('div');
+
+         for(let i=1; i<=100; i++){
+            let element = document.createElement('p');
+            element.textContent='this is me'+i;
+            
+            myDiv.appendChild(element);
+
+                 }
+                 document.body.appendChild(myDiv);
+let t4 = performance.now();
+console.log('this took '+ (t4-t3) + ' ms');
+        // how we can write efficient and performing code  --> reflow and repaint
+         
+        // concept of documentfragment --> createDocumentFragment
+           
+        let t5 = performance.now();
+
+         let fragment = document.createDocumentFragment();
+         for(let i=1; i<=100; i++){
+            let fewElement = document.createElement('p');
+            fewElement.textContent='this is new element '+i;
+           fragment.appendChild(fewElement);
+         }
+         document.body.appendChild(fragment);  // 1 reflow and 1 repaint
+         let t6 = performance.now();
+         console.log('this took ' + (t6-t5) + ' ms')
+
+        // function call stack and its working 
+          function loli(){
+            let jontent = document.createElement('p');
+            jontent.textContent='this is loli';
+            document.body.appendChild(jontent);
+          }
+
+          function koli(){
+            let rontent = document.createElement('p');
+            rontent.textContent='this is koli';
+            document.body.appendChild(rontent);
+          }
+
+
+          loli();  // function invoke or call 
+
+          koli();
+
+        // event loop   --> callstack --> browser --> Event Queue
+
+
+        // setTimeOut  method
+        setTimeout(function(){
+          console.log('hello everyone');
+        },1000);
+
+
+        console.log('hi');
+        setTimeout(function(){
+          console.log('hello ji')
+        },0);
+        console.log('hlo');
+
+
+        // reflow and repaint  good practice --> minimum to minimum
+
+        
+        // call stack 
+
+
+    </script>
+</body>
+</html>
